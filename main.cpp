@@ -71,19 +71,17 @@ int main(int argc, char *argv[]) {
     std::string line;
     while (std::getline(trace_file, line)) {
         std::istringstream iss(line);
-        uint64_t address, pc;
-        char access_type;
-        if (!(iss >> std::hex >> pc >> access_type >> std::hex >> address)) {
+        uint64_t address, size;
+        //char access_type;
+        if (!(iss >> std::hex >> address >> std::hex >> size)) {
             
             std::cerr << "Failed to parse trace file line: " << line << std::endl;
             
             continue;
         }
-        std::cout << "pc: " << pc << std::hex << std::endl;
-        std::cout << "pc: " << pc << std::hex << std::endl;
-        std::cout << "access_type: " << access_type << std::endl;
+        std::cout << "size: " << size << std::hex << std::endl;
         std::cout << "address: " << address << std::hex << std::endl;
-        locality_monitor.push_address(address, 8); // sizeof(address) = 8
+        locality_monitor.push_address(address, size); // sizeof(address) = 8
     }
     
     
