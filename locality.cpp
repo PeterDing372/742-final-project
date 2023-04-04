@@ -34,7 +34,12 @@ void locality::push_address(uint64_t addr, uint32_t size){
     std::cout << "addr pushed: " << addr << std::hex << std::endl;
 
 }
+// void locality::print_info(){
 
+//   std::cout << "------------ printing locality info --------------"  << std::endl;
+
+
+// }
 
 void locality::calculate_locality(){
 
