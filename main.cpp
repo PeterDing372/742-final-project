@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
     
     /* call this to record traces both store (W) and load (R)*/
     // Open the trace file
-    std::ifstream trace_file("trace3.txt");
+    std::ifstream trace_file("trace2.txt");
     if (!trace_file.is_open()) {
         std::cerr << "Failed to open trace file!" << std::endl;
         return -1;
@@ -87,10 +87,10 @@ int main(int argc, char *argv[]) {
             
             continue;
         }
-        std::cout << "pc: " << pc << std::hex << std::endl;
-        std::cout << "pc: " << pc << std::hex << std::endl;
-        std::cout << "access_type: " << access_type << std::endl;
-        std::cout << "address: " << address << std::hex << std::endl;
+        // std::cout << "pc: " << pc << std::hex << std::endl;
+        // std::cout << "pc: " << pc << std::hex << std::endl;
+        // std::cout << "access_type: " << access_type << std::endl;
+        // std::cout << "address: " << address << std::hex << std::endl;
         // locality_monitor.push_address(address, 8); // sizeof(address) = 8
         locality_monitor.push_address(address, size); // sizeof(address) = 8
     }
