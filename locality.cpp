@@ -31,10 +31,15 @@ void locality::push_address(uint64_t addr, uint32_t size){
     new_rqst.size = size;
 
     requests.push_back(new_rqst);
-    std::cout << "addr pushed: " << addr << std::hex << std::endl;
+    // std::cout << "addr pushed: " << addr << std::hex << std::endl;
 
 }
+// void locality::print_info(){
 
+//   std::cout << "------------ printing locality info --------------"  << std::endl;
+
+
+// }
 
 void locality::calculate_locality(){
 
@@ -53,8 +58,8 @@ void locality::calculate_locality(){
   for(int i = 0; i < requests.size(); i++){
     uint64_t addr = requests[i].address;
     uint32_t size = requests[i].size;
-    std::cout << "addr: " << addr  << std::endl;
-    std::cout << "size: " << size  << std::endl;
+    // std::cout << "addr: " << addr  << std::endl;
+    // std::cout << "size: " << size  << std::endl;
 
     if(to_remove.find(addr)!=to_remove.end())
         continue;
@@ -98,12 +103,12 @@ float locality::get_spatial_locality(){
   for (int i = 0; i < 21; i++){
     if (stride_access == 0){
       return 0.0;
-      std::cout << "returned zero stride"  << std::endl;
+      // std::cout << "returned zero stride"  << std::endl;
     }
 
     percent = s_histogram[pow(2, i)] * 1.0 / stride_access;
     spatial_locality_score += percent * 1.0 / pow(2, i);
-    std::cout << "percent: " << percent << std::endl;
+    // std::cout << "percent: " << percent << std::endl;
     
   }
 
